@@ -1,6 +1,7 @@
 package com.example.wantedchallenge.domain.user;
 
 import com.example.wantedchallenge.domain.BaseTimeEntity;
+import com.example.wantedchallenge.domain.enums.UserRoleEnum;
 import com.example.wantedchallenge.domain.product.Product;
 import com.example.wantedchallenge.domain.transaction.Transaction;
 import jakarta.persistence.*;
@@ -30,6 +31,10 @@ public class User extends BaseTimeEntity {
 
     @Column(nullable = false)
     private String name;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private UserRoleEnum role;
 
     @OneToMany(mappedBy = "seller")
     private List<Product> products;
