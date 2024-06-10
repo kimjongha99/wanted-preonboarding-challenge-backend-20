@@ -32,7 +32,7 @@ public class WebSecurityConfig {
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/", "/api/v1/auth/**", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                        .requestMatchers("/", "/api/v1/users/health", "/api/v1/products/health", "/api/v1/transactions/health").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/products/**", "/api/v1/comments/**").permitAll()
                         .requestMatchers("/api/v1/users/**").hasAnyRole("USER", "ADMIN")
                         .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
